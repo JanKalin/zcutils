@@ -19,9 +19,9 @@ $ chmod +x zcutils/miningrate.py
 When executed, the script will check the latest 10000 transactions (by default) for mined TAZ and generate some statistics.
 It is also possible to generate a graph of mining data. Run `zcutils/miningrate.py -h` for help.
 
-An example of running the script with default parameters:
+An example of running the script with the default parameters:
 ```
-jank@ubuntu-modeli:~$ zcutils/miningrate.py
+$ zcutils/miningrate.py
 Getting transactions ... 100%
 Reading 16 blocks ... 100%
 +--------+---------------------+----------+---------+----------+
