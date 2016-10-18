@@ -4,7 +4,7 @@ Python utils for Zcash. Currently implements a mining rate calculator.
 ## Prerequisites
 A working Zcash daemon and Zcash build environment. See https://github.com/zcash/zcash/wiki/Beta-Guide.
 
-Additional python libraries installed with
+Additional Python libraries, installed with
 ```
 $ sudo apt-get python-matplotlib python-prettytable python-scipy
 ```
