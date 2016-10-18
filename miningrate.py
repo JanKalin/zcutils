@@ -130,7 +130,7 @@ for idx, day in enumerate(days):
     daydata['count'][idx] = len(np.where(where)[0])
 table = PrettyTable(['day', 'dtime', 'count'])
 for idx in range(len(daydata)):
-    table.add_row([daydata['time'][idx],  daydata['dtime'][idx]/60, daydata['count'][idx]])
+    table.add_row([time(daydata['time'][idx]),  daydata['dtime'][idx]/60, daydata['count'][idx]])
 print table
     
 # Histograms
