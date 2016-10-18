@@ -63,4 +63,5 @@ Reading 16 blocks ... 100%
 ```
 
 # Known issues
-The timestamps are not calculated correctly, but for general idea of the mining rate it's good enough.
+* The timestamps are not calculated correctly, but for general idea of the mining rate it's good enough.
+* Graphs are not well-documented and formatted
