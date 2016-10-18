@@ -118,7 +118,6 @@ if not args.nostats:
     immature = len(np.where(data['immature'])[0]);
     table.add_row(['blocks', "{} + {}".format(len(data)-immature, immature), "", ""])
     table.add_row(['blocks/day', delta, "", ""])
-    table.add_row(['zcoins/day', delta*40, "", ""])
     print table
 
 # Get per-day stats
