@@ -84,13 +84,13 @@ else:
 
 # Table
 if not args.notable:
-    table = PrettyTable(['height', 'time', 'immature', 'difficulty', 'dheight', 'dtime'])
+    table = PrettyTable(['height', 'time', 'difficulty', 'immature', 'dheight', 'dtime'])
     for idx in range(len(data)):
-        row = [data['height'][idx], time(data['time'][idx]), "*" if data['immature'][idx] else ""]
+        row = [data['height'][idx], time(data['time'][idx]), data['difficulty'][idx], "*" if data['immature'][idx] else ""]
         if idx:
-            row += [data['difficulty'][idx], data['dheight'][idx], dtime(data['dtime'][idx])]
+            row += [data['dheight'][idx], dtime(data['dtime'][idx])]
         else:
-            row += ["", "", ""]
+            row += ["", ""]
         table.add_row(row)
     print table
 
