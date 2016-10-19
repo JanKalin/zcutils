@@ -44,7 +44,7 @@ parser.add_argument("--maxdtime", help="Maximum dtime in minutes. Used to skip p
 args = parser.parse_args()
 
 # dtype for data
-dtype=[('height', int), ('time', int), ('dheight', int), ('dtime', int), ('blocktime', float), ('immature', int)]
+dtype=[('height', int), ('time', int), ('dheight', int), ('dtime', int), ('blocktime', float), ('immature', int), ('difficulty', float)]
 
 # Perhaps load data
 if args.loaddata:
@@ -68,7 +68,7 @@ else:
         if len(generated) > 1 and not args.noprogress:
             progress.step()
         block = zcli.getblock(transaction['blockhash'])
-        for field in ['height', 'time']:
+        for field in ['height', 'time', 'difficulty']:
             data[field][idx] = block[field]
         data['immature'][idx] = transaction['category'] == 'immature'
     data['dheight'][1:] = np.diff(data['height'])
@@ -84,13 +84,13 @@ else:
 
 # Table
 if not args.notable:
-    table = PrettyTable(['height', 'time', 'immature', 'dheight', 'dtime'])
+    table = PrettyTable(['height', 'time', 'immature', 'difficulty', 'dheight', 'dtime'])
     for idx in range(len(data)):
         row = [data['height'][idx], time(data['time'][idx]), "*" if data['immature'][idx] else ""]
         if idx:
-            row += [data['dheight'][idx], dtime(data['dtime'][idx])]
+            row += [data['difficulty'][idx], data['dheight'][idx], dtime(data['dtime'][idx])]
         else:
-            row += ["", ""]
+            row += ["", "", ""]
         table.add_row(row)
     print table
 
@@ -99,6 +99,10 @@ if not args.nostats:
     table = PrettyTable(['qty', 'mean', 'std', 'median'])
     table.float_format = "7.4"
     table.align['qty'] = 'r'
+    table.add_row(['difficulty',
+                   np.mean(data['difficulty'][1:]),
+                   np.std(data['difficulty'][1:]),
+                   np.median(data['difficulty'][1:])])
     table.add_row(['dheight',
                    np.mean(data['dheight'][1:]),
                    np.std(data['dheight'][1:]),
