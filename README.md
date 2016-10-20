@@ -10,10 +10,9 @@ $ sudo apt-get python-matplotlib python-prettytable python-scipy
 ```
 
 ## Installing and running
-Fetch the repository and change file mode
+Fetch the repository
 ```
 $ git clone https://github.com/JanKalin/zcutils.git
-$ chmod +x zcutils/miningrate.py
 ```
 
 When executed, the script will check the latest 10000 transactions (by default) for mined TAZ and generate some statistics.
