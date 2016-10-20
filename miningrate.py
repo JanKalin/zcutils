@@ -85,6 +85,8 @@ else:
 # Table
 if not args.notable:
     table = PrettyTable(['height', 'time', 'difficulty', 'immature', 'dheight', 'dtime'])
+    table.align['dheight'] = 'r'
+    table.float_format = "9.2"
     for idx in range(len(data)):
         row = [data['height'][idx], time(data['time'][idx]), data['difficulty'][idx], "*" if data['immature'][idx] else ""]
         if idx:
@@ -97,7 +99,7 @@ if not args.notable:
 # Stats
 if not args.nostats:
     table = PrettyTable(['qty', 'mean', 'std', 'median'])
-    table.float_format = "7.4"
+    table.float_format = "7.2"
     table.align['qty'] = 'r'
     table.add_row(['difficulty',
                    np.mean(data['difficulty'][1:]),
@@ -125,16 +127,17 @@ if not args.nostats:
     print table
 
 # Get per-day stats
-days = np.unique(data['time']/86400)
-daydata = np.zeros((len(days),), dtype=[('time', float), ('dtime', float), ('count', float)])
+days = np.unique([datetime.date.fromtimestamp(x) for x in data['time']])
+daydata = np.zeros((len(days),), dtype=[('time', object), ('dtime', object), ('count', int)])
 for idx, day in enumerate(days):
-    where = data['time']/86400 == day
-    daydata['time'][idx] = day*86400
-    daydata['dtime'][idx] = np.mean(data['dtime'][where])
-    daydata['count'][idx] = len(np.where(where)[0])
+    where = [jdx for (jdx, val) in enumerate(data['time'])  if datetime.date.fromtimestamp(val) == day]
+    daydata['time'][idx] = day.strftime("%Y-%m-%d")
+    daydata['dtime'][idx] = dtime(np.mean(data['dtime'][where]))
+    daydata['count'][idx] = len(where)
 table = PrettyTable(['day', 'dtime', 'count'])
+table.align['count'] = 'r'
 for idx in range(len(daydata)):
-    table.add_row([time(daydata['time'][idx]),  daydata['dtime'][idx]/60, daydata['count'][idx]])
+    table.add_row([daydata['time'][idx],  daydata['dtime'][idx], daydata['count'][idx]])
 print table
     
 # Histograms
