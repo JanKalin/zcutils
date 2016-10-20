@@ -63,6 +63,5 @@ Reading 16 blocks ... 100%
 ```
 
 # Known issues
-The timestamps for per-day statistics are not calculated correctly, but for general idea of the mining rate, especially if the mining rate is approximately constant, it's good enough.
 
 Graphs are not well-documented and formatted
