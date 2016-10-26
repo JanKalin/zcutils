@@ -10,10 +10,11 @@ $ sudo apt-get python-matplotlib python-prettytable python-scipy
 ```
 
 ## Installing 
-Fetch the repository
+Fetch the repository with
 ```
 $ git clone https://github.com/JanKalin/zcutils.git
 ```
+or use the _Clone or Download_ button on the GitHub page https://github.com/JanKalin/zcutils and choose _Download ZIP_.
 
 ## Running `miningrate.py`
 
