@@ -36,7 +36,7 @@ groupdata = parser.add_mutually_exclusive_group()
 groupdata.add_argument("--nocache", help="Do not use cache file '{}'".format(cachefile), action='store_true')
 parser.add_argument("--top", help="Print only top N miners", type=int, metavar='N')
 parser.add_argument("--noprogress", help="Do not display progress", action='store_true')
-parser.add_argument("--lastdays", help="Inlude only data from last few days", type=int)
+parser.add_argument("--lastdays", help="Inlude only data from last few days. Can be a fraction of a day", type=float)
 parser.add_argument("--map", help="Map address->name for printing out pool names. Perhaps best set using '@<filename>",
                     nargs='+', metavar='ADDR:NAME')
 parser.add_argument("--valuesort", help="Sort output by mined value, not number of blocks", action='store_true')
