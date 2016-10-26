@@ -13,10 +13,10 @@ import sys
 class Progress:
     """Progress indicator"""
 
-    def __init__(self, fmt="{}", max_value=0):
+    def __init__(self, value=0, fmt="{}", max_value=0):
         """Sets max value and prints out first line. The format should be without the \\r"""
         self.max_value = max_value
-        self.value = 0
+        self.value = value
         self.prev = 0
         self.fmt = "\r" + fmt
         print self.fmt.format(self.value),

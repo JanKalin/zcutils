@@ -1,0 +1,5 @@
+--map
+tmAzW7DErtP4Qujbzd6dHyQ48deSbPDMXD6:coinmine.pl
+tmA2CA9sDS7DDBfQZmWtKW3aoKL3Hst5fxp:suprnova.cc
+tmW5PkapUyXQZRL4AzdH3c4gWFKzMP2DKUr:zmine.io
+tmWb1uvaEf6FEPRkP69oX8NfKXFr6E5cmDN:flypool.org

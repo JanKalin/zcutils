@@ -9,14 +9,17 @@ Additional Python libraries, installed with
 $ sudo apt-get python-matplotlib python-prettytable python-scipy
 ```
 
-## Installing and running
+## Installing 
 Fetch the repository
 ```
 $ git clone https://github.com/JanKalin/zcutils.git
 ```
 
-When executed, the script will check the latest 10000 transactions (by default) for mined TAZ and generate some statistics.
-It is also possible to generate a graph of mining data. Run `zcutils/miningrate.py -h` for help.
+## Running `miningrate.py`
+
+When executed, the script will check the latest 10000 transactions (by default)
+for mined TAZ/ZEC and generate some statistics.  It is also possible to
+generate a graph of mining data. Run `zcutils/miningrate.py -h` for help.
 
 An example of running the script with the default parameters:
 ```
@@ -70,6 +73,38 @@ Reading 25 blocks ... 100%
 +------------+---------+-------+
 ```
 
-# Known issues
+### Known issues
 
 Graphs are not well-documented and formatted
+
+## Running `minerlist.py`
+
+When executed the script will read the blockchain for information about
+miners and print out a table. In order to speed up subsequent runs, a file
+in temporary directory is used to cache data from previous runs.  Run
+`minerlist.py -h` for help. 
+
+An example of running the script is:
+```
+$ ./minerlist.py  @map.txt --last 1 --top 10
+2322 blocks in cache
+Reading blocks 2323 to at least 2323: 2323
+Keeping last 603 blocks
++--------+-----------+-----------+-----------+-------------------------------------+
+| blocks |   % bl.   |   value   |   % val.  |             name/address            |
++--------+-----------+-----------+-----------+-------------------------------------+
+|    313 |   51.9071 |  317.6730 |   52.6821 |             suprnova.cc             |
+|     34 |    5.6385 |   34.5896 |    5.7363 | tmCGbGuXcHs6dEhWwCKL9USwAqnQ8MzzjxU |
+|     24 |    3.9801 |   24.0004 |    3.9802 |             coinmine.pl             |
+|     23 |    3.8143 |   22.9355 |    3.8036 |             flypool.org             |
+|      6 |    0.9950 |    5.7588 |    0.9550 | tmAY8sBmArJGMs9FTFPVH9yywLj1tUnSP1h |
+|      5 |    0.8292 |    5.1589 |    0.8555 |               zmine.io              |
+|      4 |    0.6633 |    3.3472 |    0.5551 | tmTXNiSh8rzVp9ZtF5eS5U7A2TpK6ScEc5W |
+|      3 |    0.4975 |    0.7779 |    0.1290 | tmArktme2ryF45ynBT3LvciafbgPbD3EFqg |
+|      2 |    0.3317 |    2.0580 |    0.3413 | tmYjw1tQfEYKzoR6spPodu3EmzyXBBsLTA9 |
+|      1 |    0.1658 |    1.1610 |    0.1925 | tmDacMeLppwMMW7YDmVqKw2xzSNkz8Uvj8S |
++--------+-----------+-----------+-----------+-------------------------------------+
+```
+
+The file `map.txt` contains a mapping of address to pool name. This mapping
+will have to be changed once the main net is online.
