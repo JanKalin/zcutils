@@ -1,5 +1,5 @@
 # zcutils
-Python utils for Zcash. Currently implements a mining rate calculator.
+Python utils for Zcash. Currently implements a mining rate calculator and a miner list creator.
 
 ## Prerequisites
 A working Zcash daemon and Zcash build environment. See https://github.com/zcash/zcash/wiki/Beta-Guide.
