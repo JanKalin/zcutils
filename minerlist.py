@@ -34,6 +34,7 @@ parser = argparse.ArgumentParser(description="Generate a list of miners",
 parser.add_argument("--zcash_cli", help="Path to zcash-cli binary.", default="~/zcash/src/zcash-cli")
 groupdata = parser.add_mutually_exclusive_group()
 groupdata.add_argument("--nocache", help="Do not use cache file '{}'".format(cachefile), action='store_true')
+groupdata.add_argument("--clearcache", help="Clear cache file '{}'".format(cachefile), action='store_true')
 parser.add_argument("--top", help="Print only top N miners", type=int, metavar='N')
 parser.add_argument("--noprogress", help="Do not display progress", action='store_true')
 parser.add_argument("--lastdays", help="Inlude only data from last few days. Can be a fraction of a day", type=float)
@@ -57,7 +58,7 @@ tmpdata = []
 # Perhaps load cache
 cache = np.zeros((0,), dtype=dtype)
 cacheblockcount = -1
-if not args.nocache:
+if not args.nocache and not args.clearcache:
     try:
         cache = np.load(cachefile)
         cacheblockcount = np.max(cache['n'])
