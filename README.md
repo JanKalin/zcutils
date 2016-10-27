@@ -6,7 +6,7 @@ A working Zcash daemon and Zcash build environment. See https://github.com/zcash
 
 Additional Python libraries, installed with
 ```
-$ sudo apt-get python-matplotlib python-prettytable python-scipy
+$ sudo apt-get install python-matplotlib python-prettytable python-scipy
 ```
 
 ## Installing 
