@@ -1,6 +1,5 @@
 --map
-tmYefTnxJi6mG4nFpwHrcK28ReSLrVHJ8cz:coinmine.pl
-tmA2CA9sDS7DDBfQZmWtKW3aoKL3Hst5fxp:suprnova.cc
-tmDnZ2Yd3rBCbYvHh5Y1SLYNnWsJVG94neN:suprnova.cc
-tmW5PkapUyXQZRL4AzdH3c4gWFKzMP2DKUr:zmine.io
-tmWb1uvaEf6FEPRkP69oX8NfKXFr6E5cmDN:flypool.org
+t1SaATQbzURpG1qU3vz9Wfn3pwXoTqFtTq2:suprnova.cc
+t1KHa9CJeCy3b9rUX2BhqkFJXSxSSrhM7LJ:coinmine.pl
+t1Zwja2mq2bqGXyk6JN6da8oVLhuHEsuR5S:zmine.io
+t1XepX38RxS3o5hLioLbaNb6Fa2Y2Be55xw:flypool.org
