@@ -60,6 +60,10 @@ else:
         print "100%"
     generated = [x for x in transactions if 'generated' in x]
 
+    if not len(generated):
+        print "Sorry, no coins mined on this computer"
+        exit(0)
+
     # Create a numpy array and fill it
     data = np.zeros((len(generated),), dtype=dtype)
     if len(generated) > 1 and not args.noprogress:
